@@ -1,3 +1,4 @@
+
 package com.example.heng.heng_150125_tuto3;
 
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.Button;
 import android.graphics.Color;
 import android.widget.EditText;
+import android.content.res.Resources;
+import android.util.TypedValue;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -16,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         RelativeLayout HengLayout = new RelativeLayout(this);
-        HengLayout.setBackgroundColor(Color.GREEN);
+        HengLayout.setBackgroundColor(Color.GRAY);
 
         Button redButton = new Button(this);
         redButton.setText("Log In!");
@@ -30,8 +33,8 @@ public class MainActivity extends ActionBarActivity {
 
 
         RelativeLayout.LayoutParams buttonDetails = new RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.WRAP_CONTENT,
-            RelativeLayout.LayoutParams.WRAP_CONTENT
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
         );
         RelativeLayout.LayoutParams usernameDetails = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -45,6 +48,12 @@ public class MainActivity extends ActionBarActivity {
 
         buttonDetails.addRule(RelativeLayout.CENTER_HORIZONTAL);
         buttonDetails.addRule(RelativeLayout.CENTER_VERTICAL);
+
+        Resources r = getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,
+                r.getDisplayMetrics()
+        );
+        username.setWidth(px);
 
         HengLayout.addView(redButton, buttonDetails);
         HengLayout.addView(username,usernameDetails);
